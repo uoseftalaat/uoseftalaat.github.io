@@ -51,7 +51,7 @@ export const personalInfo = {
   headline: "Software Tester / QC",
   subheadline: "Manual & Automated Testing across Web, Mobile (Android & iOS), and API",
   location: "Cairo, Egypt",
-  email: "Uoseftalaat0@gmail.com",
+  email: "contact@uoseftalaat.online",
   phone: "+201063935766",
   linkedin: "https://www.linkedin.com/in/uoseftalaat",
   resumePath: `${baseUrl}Uosef_talaat.pdf`,
