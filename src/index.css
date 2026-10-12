@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-mono: "SF Mono", "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
+}
+
+:root {
+  color-scheme: light;
+  --apple-cream-bg: #FAF7F2;
+  --apple-surface-card: #FFFFFF;
+  --apple-border: rgba(35, 25, 15, 0.08);
+  --apple-border-strong: rgba(35, 25, 15, 0.14);
+  --apple-text-espresso: #1D1D1F;
+  --apple-text-graphite: #585550;
+  --apple-text-muted: #86847F;
+  --apple-accent-blue: #0071E3;
+  --apple-accent-bronze: #A3704C;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: var(--apple-cream-bg);
+  color: var(--apple-text-espresso);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--apple-cream-bg);
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Apple Display Typography optical tracking */
+.display-title {
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+
+.headline-title {
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+.body-subtext {
+  letter-spacing: -0.01em;
+  line-height: 1.6;
+}
+
+/* Apple Rich Cream Materials & Depth */
+.apple-cream-glass {
+  background: rgba(250, 247, 242, 0.82);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(35, 25, 15, 0.09);
+  box-shadow: 0 8px 30px -4px rgba(45, 35, 20, 0.06);
+}
+
+.apple-cream-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(35, 25, 15, 0.08);
+  box-shadow: 0 10px 30px -8px rgba(45, 35, 20, 0.06), inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.apple-cream-card:hover {
+  border-color: rgba(35, 25, 15, 0.16);
+  box-shadow: 0 20px 40px -10px rgba(45, 35, 20, 0.1), inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+}
+
+.apple-cream-elevated {
+  background: #FFFFFF;
+  border: 1px solid rgba(35, 25, 15, 0.1);
+  box-shadow: 0 20px 48px -12px rgba(45, 35, 20, 0.09), inset 0 1px 0 0 rgba(255, 255, 255, 0.95);
+}
+
+.apple-pill-cream {
+  background: rgba(35, 25, 15, 0.04);
+  border: 1px solid rgba(35, 25, 15, 0.08);
+}
+
+/* Apple tactile press feedback */
+.apple-tap-feedback {
+  transition: transform 120ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 120ms ease;
+}
+
+.apple-tap-feedback:active {
+  transform: scale(0.97);
+}
+
+/* Elegant light-theme scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(35, 25, 15, 0.18);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(35, 25, 15, 0.28);
+}
+
+/* Accessibility: Reduced motion & reduced transparency */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .apple-tap-feedback:active {
+    transform: none !important;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .apple-cream-glass {
+    background: #FAF7F2 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
