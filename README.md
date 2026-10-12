@@ -2,7 +2,7 @@
 
 > **Software Tester / QC**  
 > Pioneering AI-Augmented QA & Multi-Platform Quality Engineering  
-> 🌐 **Live Website**: [https://uoseftalaat.github.io/Uosef_Talaat_Website/](https://uoseftalaat.github.io/Uosef_Talaat_Website/)
+> 🌐 **Live Website**: [https://uoseftalaat.github.io/](https://uoseftalaat.github.io/)
 
 Modern, high-performance portfolio website built with **React**, **Vite**, **TypeScript**, and **Tailwind CSS v4**, showcasing production testing architectures, AI-assisted workflows (SpecKit), ISTQB certifications, and end-to-end multi-platform coverage.
 
@@ -62,7 +62,7 @@ This repository includes an automated CI/CD workflow (`.github/workflows/deploy.
 1. In your GitHub repository, navigate to **Settings** > **Pages**.
 2. Under **Build and deployment** > **Source**, choose **GitHub Actions**.
 3. Every push to `main` automatically builds and publishes the website to:
-   👉 **[https://uoseftalaat.github.io/Uosef_Talaat_Website/](https://uoseftalaat.github.io/Uosef_Talaat_Website/)**
+   👉 **[https://uoseftalaat.github.io/](https://uoseftalaat.github.io/)**
 
 ### Alternative Hosts (Vercel / Netlify)
 - **Vercel**: Import the GitHub repository at [vercel.com](https://vercel.com).
