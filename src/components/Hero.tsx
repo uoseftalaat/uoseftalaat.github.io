@@ -1,9 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Download, 
-  ExternalLink, 
   Mail, 
-  Phone, 
   MapPin, 
   ShieldCheck, 
   CheckCircle2, 
@@ -12,150 +10,294 @@ import {
   Layers,
   ArrowRight,
   Code2,
-  Activity
+  Award,
+  Zap,
+  Target,
+  Smartphone,
+  Check,
+  Activity,
+  Flame
 } from 'lucide-react';
 import { motion } from 'motion/react';
 import { personalInfo } from '../data/portfolioData';
 
 export const Hero: React.FC = () => {
+  const [activeLayer, setActiveLayer] = useState<number | null>(null);
+
+  const verificationLayers = [
+    {
+      id: 1,
+      title: 'Contract & API Automation',
+      icon: Terminal,
+      coverage: '99% Coverage',
+      subtext: 'REST endpoints, microservice payload integrity, and schema regression prevention.',
+      tech: ['Postman', 'HTTParty', 'Playwright API'],
+      status: 'VERIFIED',
+      accent: '#C0392B'
+    },
+    {
+      id: 2,
+      title: 'Multi-Platform Mobile QA',
+      icon: Smartphone,
+      coverage: 'Android & iOS',
+      subtext: 'Real-device test matrix, deep UI flows, hardware fragmentation, and POS validation.',
+      tech: ['Appium', 'UiAutomator2', 'XCUITest'],
+      status: 'PARALLEL GRID',
+      accent: '#855C00'
+    },
+    {
+      id: 3,
+      title: 'Web E2E & Agentic AI Testing',
+      icon: Cpu,
+      coverage: '30% Faster Velocity',
+      subtext: 'Autonomous testing blueprints with SpecKit and AI-accelerated test scenario generation.',
+      tech: ['Playwright (TS)', 'SpecKit AI', 'CI/CD Gates'],
+      status: 'DETERMINISTIC',
+      accent: '#C0392B'
+    }
+  ];
+
   return (
-    <section id="hero" className="relative pt-28 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-[#08090D] mono-grid-pattern">
+    <section id="hero" className="relative pt-32 pb-20 md:pt-44 md:pb-28 overflow-hidden">
       
-      {/* Subtle Technical Radial Grid Accent */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-gradient-to-b from-emerald-500/5 via-cyan-500/3 to-transparent blur-[120px] pointer-events-none rounded-full" />
+      {/* Subtle Warm Editorial Radial Accent */}
+      <div className="absolute top-0 right-1/4 w-[600px] h-[350px] bg-gradient-to-b from-[#C0392B]/5 via-[#855C00]/3 to-transparent blur-[120px] pointer-events-none rounded-full" />
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ type: 'spring', damping: 26, stiffness: 220 }}
-          className="max-w-4xl space-y-7"
-        >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
           
-          {/* Status Pill Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#0E1017] border border-white/10 text-xs font-mono text-[#9CA3AF]">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-            </span>
-            <span className="text-white font-medium">{personalInfo.availability}</span>
-            <span className="text-white/20">|</span>
-            <span className="text-emerald-400">{personalInfo.location}</span>
-          </div>
-
-          {/* Mono Tech Display Headline */}
-          <div>
-            <div className="text-xs font-mono uppercase tracking-widest text-emerald-400 mb-3 flex items-center gap-2">
-              <Activity className="w-3.5 h-3.5" />
-              <span>Deterministic Quality Engineering</span>
-            </div>
-            <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-[#F3F4F6] display-title">
-              Flawless quality. <br />
-              <span className="text-white font-extrabold tracking-tight">
-                Manual & Automation.
+          {/* Left Column: Monumental Editorial Text (7 cols) */}
+          <motion.div 
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ type: 'spring', damping: 26, stiffness: 220 }}
+            className="lg:col-span-7 space-y-7"
+          >
+            
+            {/* Status Pill Badge */}
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white border border-[#DDD8CF] text-xs font-sans text-[#7A7367] shadow-xs">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C0392B] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#C0392B]"></span>
               </span>
-            </h1>
-            <p className="mt-4 sm:mt-5 text-sm sm:text-base lg:text-lg text-[#9CA3AF] font-normal body-subtext max-w-2xl leading-relaxed">
-              I'm <strong className="text-white font-semibold">{personalInfo.name}</strong>, a certified Software Tester / QC Engineer with 3x ISTQB certifications (<span className="text-white font-medium">CTFL</span>, <span className="text-white font-medium">CTFL-MAT</span>, and <span className="text-white font-medium">CT-GenAI</span>), delivering comprehensive <span className="text-white font-medium">Manual and Automated Testing</span> across Web, Mobile (Android & iOS), and API layers.
-            </p>
-          </div>
+              <span className="text-[#1C1A17] font-medium">{personalInfo.availability}</span>
+              <span className="text-[#DDD8CF]">|</span>
+              <span className="text-[#855C00] font-medium flex items-center gap-1">
+                <MapPin className="w-3 h-3 inline" />
+                {personalInfo.location}
+              </span>
+            </div>
 
-          {/* Capability Chips (Mono Tech Tags) */}
-          <div className="flex flex-wrap gap-2 pt-1 font-mono">
-            {[
-              { label: 'Manual & Automation Testing', icon: CheckCircle2 },
-              { label: 'Playwright (TypeScript)', icon: Terminal },
-              { label: 'Selenium / Capybara', icon: Code2 },
-              { label: 'Appium (Mobile)', icon: Cpu },
-              { label: 'Android & iOS Testing', icon: Layers },
-              { label: '3x ISTQB Certified', icon: ShieldCheck },
-            ].map((pill, idx) => {
-              const Icon = pill.icon;
-              return (
-                <span
-                  key={idx}
-                  className="inline-flex items-center gap-1.5 text-xs px-3 py-2 rounded-lg bg-[#0E1017] border border-white/10 text-[#D1D5DB] hover:border-emerald-500/40 hover:text-white transition-colors"
-                >
-                  <Icon className="w-3.5 h-3.5 text-emerald-400" />
-                  {pill.label}
+            {/* Monumental Headline in Reem Kufi */}
+            <div>
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#1C1A17] display-title">
+                Flawless quality. <br />
+                <span className="text-[#C0392B] font-extrabold">
+                  Manual & Automation.
                 </span>
-              );
-            })}
-          </div>
+              </h1>
+              
+              <p className="mt-3 font-editorial text-lg sm:text-xl text-[#4A453E] italic">
+                «Architecting deterministic quality, precision automation, and zero-defect deliveries across Web, Mobile, and API systems.»
+              </p>
 
-          {/* Tactile CTA Buttons (Full width on mobile, inline on desktop) */}
-          <div className="flex flex-col sm:flex-row sm:items-center gap-3 pt-3">
-            <motion.a
-              whileTap={{ scale: 0.96 }}
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: 'spring', damping: 20, stiffness: 300 }}
-              href={personalInfo.resumePath}
-              download="Uosef_Talaat_CV.pdf"
-              className="w-full sm:w-auto justify-center min-h-[46px] inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-[#08090D] font-mono font-semibold text-xs shadow-[0_0_24px_rgba(16,185,129,0.25)] transition-all"
-            >
-              <Download className="w-4 h-4" />
-              Get My CV
-            </motion.a>
+              <p className="mt-4 text-sm sm:text-base text-[#4A453E] body-subtext max-w-2xl leading-relaxed">
+                I'm <strong className="text-[#1C1A17] font-semibold">{personalInfo.name}</strong>, a certified Software Tester / QC Engineer with 3x ISTQB certifications (<span className="text-[#1C1A17] font-semibold">CTFL</span>, <span className="text-[#1C1A17] font-semibold">CTFL-MAT</span>, and <span className="text-[#1C1A17] font-semibold">CT-GenAI</span>), delivering comprehensive <span className="text-[#1C1A17] font-semibold">Manual and Automated Testing</span> across Web, Mobile (Android & iOS), and API layers.
+              </p>
+            </div>
 
-            <motion.a
-              whileTap={{ scale: 0.96 }}
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: 'spring', damping: 20, stiffness: 300 }}
-              href="#projects"
-              className="w-full sm:w-auto justify-center min-h-[46px] inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#0E1017] border border-white/12 text-[#F3F4F6] font-mono text-xs hover:border-emerald-500/50 hover:bg-[#141722] transition-colors"
-            >
-              <Layers className="w-4 h-4 text-emerald-400" />
-              Explore Projects
-              <ArrowRight className="w-3.5 h-3.5 text-[#6B7280]" />
-            </motion.a>
+            {/* Editorial Stat Counter Highlights */}
+            <div className="grid grid-cols-3 gap-3 pt-2 pb-1 max-w-lg">
+              <div className="p-3.5 rounded-xl bg-white border border-[#DDD8CF] shadow-xs">
+                <div className="flex items-center gap-1 text-[#855C00] mb-1">
+                  <Award className="w-3.5 h-3.5" />
+                  <span className="text-[10px] uppercase font-bold tracking-wider font-mono">ISTQB</span>
+                </div>
+                <div className="text-2xl sm:text-3xl font-bold text-[#1C1A17] font-display">3x</div>
+                <div className="text-[11px] text-[#7A7367] leading-tight mt-0.5">Certified Engineer</div>
+              </div>
 
-            <motion.a
-              whileTap={{ scale: 0.96 }}
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: 'spring', damping: 20, stiffness: 300 }}
-              href="#contact"
-              className="w-full sm:w-auto justify-center min-h-[46px] inline-flex items-center gap-1.5 px-5 py-3 rounded-xl bg-[#141722] border border-white/8 text-[#9CA3AF] hover:text-white font-mono text-xs hover:bg-[#1A1E2C] transition-colors"
-            >
-              <Mail className="w-3.5 h-3.5 text-emerald-400" />
-              Get in Touch
-            </motion.a>
-          </div>
+              <div className="p-3.5 rounded-xl bg-white border border-[#DDD8CF] shadow-xs">
+                <div className="flex items-center gap-1 text-[#C0392B] mb-1">
+                  <Zap className="w-3.5 h-3.5" />
+                  <span className="text-[10px] uppercase font-bold tracking-wider font-mono">Velocity</span>
+                </div>
+                <div className="text-2xl sm:text-3xl font-bold text-[#1C1A17] font-display">30%</div>
+                <div className="text-[11px] text-[#7A7367] leading-tight mt-0.5">Faster Authoring</div>
+              </div>
 
-          {/* Direct Contact Links Strip */}
-          <div className="pt-6 flex flex-wrap items-center gap-y-2.5 gap-x-5 text-xs font-mono text-[#9CA3AF] border-t border-white/8">
-            <a
-              href={`mailto:${personalInfo.email}`}
-              className="min-h-[44px] inline-flex items-center gap-1.5 hover:text-white transition-colors"
-            >
-              <Mail className="w-3.5 h-3.5 text-emerald-400" />
-              {personalInfo.email}
-            </a>
-            <a
-              href={`tel:${personalInfo.phone}`}
-              className="min-h-[44px] inline-flex items-center gap-1.5 hover:text-white transition-colors"
-            >
-              <Phone className="w-3.5 h-3.5 text-emerald-400" />
-              {personalInfo.phone}
-            </a>
-            <a
-              href={personalInfo.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              className="min-h-[44px] inline-flex items-center gap-1.5 hover:text-white transition-colors"
-            >
-              <svg className="w-3.5 h-3.5 fill-current text-emerald-400" viewBox="0 0 24 24">
-                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-              </svg>
-              LinkedIn
-              <ExternalLink className="w-3 h-3 text-[#6B7280]" />
-            </a>
-            <span className="min-h-[44px] inline-flex items-center gap-1.5">
-              <MapPin className="w-3.5 h-3.5 text-emerald-400" />
-              Cairo, Egypt
-            </span>
-          </div>
+              <div className="p-3.5 rounded-xl bg-white border border-[#DDD8CF] shadow-xs">
+                <div className="flex items-center gap-1 text-[#1C1A17] mb-1">
+                  <Target className="w-3.5 h-3.5" />
+                  <span className="text-[10px] uppercase font-bold tracking-wider font-mono">Coverage</span>
+                </div>
+                <div className="text-2xl sm:text-3xl font-bold text-[#1C1A17] font-display">99%</div>
+                <div className="text-[11px] text-[#7A7367] leading-tight mt-0.5">API Suite Coverage</div>
+              </div>
+            </div>
 
-        </motion.div>
+            {/* Capability Chips */}
+            <div className="flex flex-wrap gap-2 pt-1">
+              {[
+                { label: 'Manual & Automation Testing', icon: CheckCircle2 },
+                { label: 'Playwright (TypeScript)', icon: Terminal },
+                { label: 'Selenium / Capybara', icon: Code2 },
+                { label: 'Appium (Mobile)', icon: Cpu },
+                { label: 'Android & iOS Testing', icon: Layers },
+                { label: '3x ISTQB Certified', icon: ShieldCheck },
+              ].map((pill, idx) => {
+                const Icon = pill.icon;
+                return (
+                  <span
+                    key={idx}
+                    className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-white border border-[#DDD8CF] text-[#4A453E] hover:border-[#C0392B]/50 hover:text-[#1C1A17] transition-colors shadow-xs"
+                  >
+                    <Icon className="w-3.5 h-3.5 text-[#C0392B]" />
+                    {pill.label}
+                  </span>
+                );
+              })}
+            </div>
+
+            {/* Apple Fluid CTA Buttons */}
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3 pt-3">
+              <motion.a
+                whileTap={{ scale: 0.96 }}
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: 'spring', damping: 20, stiffness: 300 }}
+                href={personalInfo.resumePath}
+                download="Uosef_Talaat_CV.pdf"
+                className="w-full sm:w-auto justify-center min-h-[46px] inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#C0392B] hover:bg-[#9E2B1F] text-white font-medium text-xs shadow-[0_4px_16px_rgba(192,57,43,0.25)] transition-all tap-feedback"
+              >
+                <Download className="w-4 h-4" />
+                Get My CV
+              </motion.a>
+
+              <motion.a
+                whileTap={{ scale: 0.96 }}
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: 'spring', damping: 20, stiffness: 300 }}
+                href="#projects"
+                className="w-full sm:w-auto justify-center min-h-[46px] inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white border border-[#DDD8CF] text-[#1C1A17] hover:border-[#C0392B]/40 hover:bg-[#FAF7F2] font-medium text-xs shadow-xs transition-colors tap-feedback"
+              >
+                <Layers className="w-4 h-4 text-[#855C00]" />
+                Explore Projects
+                <ArrowRight className="w-3.5 h-3.5 text-[#7A7367]" />
+              </motion.a>
+
+              <motion.a
+                whileTap={{ scale: 0.96 }}
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: 'spring', damping: 20, stiffness: 300 }}
+                href="#contact"
+                className="w-full sm:w-auto justify-center min-h-[46px] inline-flex items-center gap-1.5 px-5 py-3 rounded-xl bg-[rgba(28,26,23,0.05)] border border-[#DDD8CF] text-[#4A453E] hover:text-[#1C1A17] font-medium text-xs hover:bg-[rgba(28,26,23,0.08)] transition-colors tap-feedback"
+              >
+                <Mail className="w-3.5 h-3.5 text-[#C0392B]" />
+                Get in Touch
+              </motion.a>
+            </div>
+
+          </motion.div>
+
+          {/* Right Column: Code-Driven Interactive Quality Assurance Atelier (5 cols) */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.96, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ type: 'spring', damping: 24, stiffness: 200, delay: 0.1 }}
+            className="lg:col-span-5"
+          >
+            <div className="relative w-full rounded-2xl bg-white border border-[#DDD8CF] p-6 sm:p-7 shadow-[0_12px_36px_rgba(28,26,23,0.08)]">
+              
+              {/* Card Window Header */}
+              <div className="flex items-center justify-between pb-4 mb-5 border-b border-[#DDD8CF]">
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#C0392B] animate-pulse"></span>
+                  <span className="text-xs font-mono font-bold tracking-wider text-[#1C1A17]">
+                    QUALITY ASSURANCE MATRIX
+                  </span>
+                </div>
+                <span className="text-[10px] font-mono font-semibold px-2.5 py-0.5 rounded-full bg-[#F8F4EA] text-[#855C00] border border-[#855C00]/30">
+                  ESTB • ISTQB VERIFIED
+                </span>
+              </div>
+
+              {/* Stacked Verification Blueprint Layers */}
+              <div className="space-y-3">
+                {verificationLayers.map((layer) => {
+                  const Icon = layer.icon;
+                  const isHovered = activeLayer === layer.id;
+
+                  return (
+                    <motion.div
+                      key={layer.id}
+                      whileHover={{ scale: 1.01 }}
+                      whileTap={{ scale: 0.98 }}
+                      onMouseEnter={() => setActiveLayer(layer.id)}
+                      onMouseLeave={() => setActiveLayer(null)}
+                      className={`p-4 rounded-xl border transition-all cursor-pointer ${
+                        isHovered 
+                          ? 'bg-[#FAF7F2] border-[#C0392B]/50 shadow-sm' 
+                          : 'bg-white border-[#DDD8CF] hover:border-[#DDD8CF]'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="flex items-center gap-2.5">
+                          <div 
+                            className="w-8 h-8 rounded-lg flex items-center justify-center text-white"
+                            style={{ backgroundColor: layer.accent }}
+                          >
+                            <Icon className="w-4 h-4" />
+                          </div>
+                          <div>
+                            <h4 className="text-sm font-bold text-[#1C1A17] font-display">
+                              {layer.title}
+                            </h4>
+                            <span className="text-[11px] font-mono text-[#855C00] font-semibold">
+                              {layer.coverage}
+                            </span>
+                          </div>
+                        </div>
+
+                        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-black/5 text-[#7A7367] border border-[#DDD8CF]">
+                          {layer.status}
+                        </span>
+                      </div>
+
+                      <p className="text-xs text-[#4A453E] leading-relaxed mb-3">
+                        {layer.subtext}
+                      </p>
+
+                      <div className="flex flex-wrap gap-1.5">
+                        {layer.tech.map((t, idx) => (
+                          <span
+                            key={idx}
+                            className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#FAF7F2] border border-[#DDD8CF] text-[#1C1A17]"
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+
+              {/* Bottom Verification Seal */}
+              <div className="mt-5 pt-4 border-t border-[#DDD8CF] flex items-center justify-between text-xs text-[#7A7367]">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-[#855C00]" />
+                  <span className="font-sans font-medium text-[#1C1A17]">3x ISTQB Standards Compliant</span>
+                </div>
+                <div className="flex items-center gap-1.5 text-[11px] font-mono text-[#855C00]">
+                  <Check className="w-3.5 h-3.5" />
+                  <span>100% Deterministic</span>
+                </div>
+              </div>
+
+            </div>
+          </motion.div>
+
+        </div>
       </div>
     </section>
   );
