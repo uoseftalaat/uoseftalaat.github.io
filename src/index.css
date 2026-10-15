@@ -1,33 +1,61 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
+  --font-display: "Reem Kufi", "Cinzel", "Playfair Display", serif;
+  --font-editorial: "Amiri", "Georgia", serif;
+  --font-sans: "Tajawal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", "SF Mono", Menlo, Monaco, Consolas, monospace;
 }
 
 :root {
-  color-scheme: dark;
-  --mono-bg: #08090D;
-  --mono-surface: #0E1017;
-  --mono-surface-elevated: #141722;
-  --mono-surface-hover: #1A1E2C;
-  --mono-border: rgba(255, 255, 255, 0.08);
-  --mono-border-strong: rgba(255, 255, 255, 0.16);
-  --mono-border-focus: rgba(52, 211, 153, 0.4);
-  --mono-text-primary: #F3F4F6;
-  --mono-text-secondary: #9CA3AF;
-  --mono-text-muted: #64748B;
-  --mono-accent-emerald: #10B981;
-  --mono-accent-emerald-dim: rgba(16, 185, 129, 0.12);
-  --mono-accent-cyan: #38BDF8;
-  --mono-accent-cyan-dim: rgba(56, 189, 248, 0.12);
+  color-scheme: light;
+
+  /* Architectural Warm Paper Ground (adapted from Uosef_talaat_books) */
+  --color-bg: #F5F1EB;
+  --color-bg-alt: #EBE5DC;
+  --color-surface: #FFFFFF;
+  --color-surface-hover: #FAF7F2;
+  --color-border: #DDD8CF;
+  --color-border-subtle: #E8E3DA;
+
+  /* Midnight Gallery Focus Ground (High-Contrast Sections) */
+  --color-dark: #121417;
+  --color-dark-surface: #1C1E24;
+  --color-dark-surface-hover: #252831;
+  --color-dark-border: #2D3139;
+  --color-dark-text: #F5F1EB;
+  --color-dark-muted: #A39D93;
+
+  /* Inks & Contrast (AAA Certified) */
+  --color-text: #1C1A17;
+  --color-text-secondary: #4A453E;
+  --color-text-muted: #7A7367;
+  --color-text-faint: #B5AFA5;
+
+  /* Signature Accents */
+  --color-accent: #C0392B;        /* Deep lacquer cinnabar vermilion */
+  --color-accent-hover: #9E2B1F;
+  --color-accent-dim: rgba(192, 57, 43, 0.08);
+  --color-gold: #855C00;          /* Antique brass / warm gold */
+  --color-gold-faint: #F8F4EA;
+  --color-gold-border: rgba(133, 92, 0, 0.25);
+
+  /* Apple Translucent Chrome */
+  --glass-bg: rgba(245, 241, 235, 0.88);
+  --glass-bg-scrolled: rgba(245, 241, 235, 0.96);
+  --glass-dark-bg: rgba(18, 20, 23, 0.88);
+
+  /* Shadows */
+  --shadow-subtle: 0 2px 8px rgba(28, 26, 23, 0.04);
+  --shadow-card: 0 4px 20px rgba(28, 26, 23, 0.06);
+  --shadow-lift: 0 12px 32px rgba(28, 26, 23, 0.12);
 }
 
 html {
   scroll-behavior: smooth;
   font-family: var(--font-sans);
-  background-color: var(--mono-bg);
-  color: var(--mono-text-primary);
+  background-color: var(--color-bg);
+  color: var(--color-text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transparent;
@@ -36,120 +64,210 @@ html {
 }
 
 body {
-  background-color: var(--mono-bg);
-  color: var(--mono-text-primary);
+  background-color: var(--color-bg);
+  color: var(--color-text);
   overflow-x: hidden;
   margin: 0;
   padding: 0;
-  -webkit-overflow-scrolling: touch;
+  line-height: 1.75;
+  background-image: radial-gradient(rgba(28, 26, 23, 0.035) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
-/* Touch Action Optimization */
-a, button {
+/* Touch Action Optimization (Apple Guideline: instant input feedback) */
+a, button, input, select, textarea {
   touch-action: manipulation;
 }
 
-/* Typography styles with Apple Optical Tuning */
+/* Browser Surface Theming */
+::selection {
+  background-color: var(--color-accent);
+  color: #FFFFFF;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+input, textarea {
+  caret-color: var(--color-accent);
+}
+
+/* Editorial Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: #C8BFB2;
+  border-radius: 4px;
+  border: 2px solid var(--color-bg);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* Apple Typography & Optical Sizing WWDC 2020 */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-editorial {
+  font-family: var(--font-editorial);
+}
+
 .display-title {
-  letter-spacing: -0.035em;
-  line-height: 1.06;
+  font-family: var(--font-display);
+  letter-spacing: -0.025em;
+  line-height: 1.12;
 }
 
 .headline-title {
-  letter-spacing: -0.025em;
-  line-height: 1.18;
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
 }
 
 .body-subtext {
-  letter-spacing: -0.01em;
-  line-height: 1.6;
+  font-family: var(--font-sans);
+  letter-spacing: -0.005em;
+  line-height: 1.7;
 }
 
-/* Hide scrollbar on touch carousels/segmented controls */
+/* Section Title with Signature Lacquer Vermilion Line */
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-text);
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 44px;
+  height: 3px;
+  background-color: var(--color-accent);
+  margin-top: 12px;
+  border-radius: 2px;
+}
+
+.section-title-dark {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-dark-text);
+  position: relative;
+  display: inline-block;
+}
+
+.section-title-dark::after {
+  content: '';
+  display: block;
+  width: 44px;
+  height: 3px;
+  background-color: var(--color-accent);
+  margin-top: 12px;
+  border-radius: 2px;
+}
+
+/* Translucent Frosted Glass Materials */
+.glass-header {
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 20px rgba(28, 26, 23, 0.05);
+}
+
+.glass-header-scrolled {
+  background-color: var(--glass-bg-scrolled);
+  box-shadow: 0 8px 30px rgba(28, 26, 23, 0.08);
+}
+
+/* Cards & Surfaces */
+.editorial-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease;
+}
+
+.editorial-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lift);
+  border-color: rgba(192, 57, 43, 0.3);
+}
+
+.midnight-card {
+  background-color: var(--color-dark-surface);
+  border: 1px solid var(--color-dark-border);
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.7);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease;
+}
+
+.midnight-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(192, 57, 43, 0.45);
+}
+
+/* Midnight Gallery Texture */
+.midnight-gallery {
+  background-color: var(--color-dark);
+  color: var(--color-dark-text);
+  background-image: radial-gradient(rgba(245, 241, 235, 0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Monogram Logo */
+.brand-monogram {
+  width: 38px;
+  height: 38px;
+  border-radius: 6px;
+  background-color: var(--color-text);
+  color: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  border: 1px solid var(--color-accent);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brand-monogram:hover {
+  transform: rotate(-6deg) scale(1.05);
+}
+
+/* Tactile Buttons (Apple instant feedback) */
+.tap-feedback {
+  transition: transform 100ms ease-out, opacity 100ms ease-out;
+}
+
+.tap-feedback:active {
+  transform: scale(0.975);
+}
+
+/* Hide scrollbar on segmented controls */
 .scrollbar-none::-webkit-scrollbar {
   display: none;
 }
 .scrollbar-none {
   -ms-overflow-style: none;
   scrollbar-width: none;
-}
-
-/* Mono Tech Surfaces */
-.mono-card {
-  background-color: var(--mono-surface);
-  border: 1px solid var(--mono-border);
-  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
-}
-
-.mono-card:hover {
-  border-color: var(--mono-border-strong);
-  background-color: var(--mono-surface-hover);
-}
-
-.mono-elevated {
-  background-color: var(--mono-surface-elevated);
-  border: 1px solid var(--mono-border);
-  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.6);
-}
-
-.mono-glass-header {
-  background-color: rgba(14, 16, 23, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--mono-border);
-}
-
-.mono-pill {
-  background-color: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--mono-border);
-  font-family: var(--font-mono);
-}
-
-.mono-pill-emerald {
-  background-color: var(--mono-accent-emerald-dim);
-  border: 1px solid rgba(16, 185, 129, 0.25);
-  color: #34D399;
-  font-family: var(--font-mono);
-}
-
-.mono-pill-cyan {
-  background-color: var(--mono-accent-cyan-dim);
-  border: 1px solid rgba(56, 189, 248, 0.25);
-  color: #38BDF8;
-  font-family: var(--font-mono);
-}
-
-/* Subtle Technical Grid Lines */
-.mono-grid-pattern {
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-}
-
-/* Tactile feedback */
-.mono-tap-feedback {
-  transition: transform 120ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 120ms ease;
-}
-
-.mono-tap-feedback:active {
-  transform: scale(0.98);
-}
-
-/* Custom dark scrollbar */
-::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
-}
-::-webkit-scrollbar-track {
-  background: #08090D;
-}
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 9999px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.28);
 }
 
 /* Accessibility: Reduced motion & reduced transparency */
@@ -160,14 +278,14 @@ a, button {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  .mono-tap-feedback:active {
+  .tap-feedback:active {
     transform: none !important;
   }
 }
 
 @media (prefers-reduced-transparency: reduce) {
-  .mono-glass-header {
-    background-color: #0E1017 !important;
+  .glass-header {
+    background-color: #F5F1EB !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
   }

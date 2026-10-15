@@ -1,170 +1,166 @@
 import React from 'react';
-import { Zap, Target, Award, GitBranch, ArrowUpRight, Activity } from 'lucide-react';
+import { Zap, Target, Award, GitBranch, ArrowUpRight } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export const MetricsBar: React.FC = () => {
   return (
-    <section id="metrics" className="py-24 relative bg-[#08090D] border-t border-white/8">
+    <section id="metrics" className="py-24 sm:py-28 relative midnight-gallery border-t border-[#2D3139] border-b border-[#2D3139]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Headline */}
-        <div className="mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#0E1017] border border-white/10 text-xs font-mono text-emerald-400 uppercase tracking-widest mb-3">
-            <Activity className="w-3.5 h-3.5" />
-            <span>01 // QUANTIFIED IMPACT</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight headline-title">
-            Measurable engineering outcomes.
+        <div className="mb-14">
+          <h2 className="section-title-dark">
+            Measurable Engineering Outcomes
           </h2>
-          <p className="mt-2 text-sm sm:text-base text-[#9CA3AF] max-w-xl body-subtext">
-            Deterministic results achieved through rigorous test planning, CI/CD pipeline optimization, and AI automation.
+          <p className="mt-4 text-base sm:text-lg text-[#A39D93] max-w-2xl body-subtext leading-relaxed">
+            Deterministic results achieved through rigorous test planning, CI/CD pipeline optimization, and AI-augmented automation.
           </p>
         </div>
 
-        {/* Mono Bento Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+        {/* Midnight Bento Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           
-          {/* Bento Item 1: AI Speedup */}
+          {/* Bento Item 1: AI Speedup (2 cols) */}
           <motion.div
-            whileHover={{ y: -2 }}
-            transition={{ type: 'spring', damping: 20, stiffness: 300 }}
-            className="lg:col-span-2 mono-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between group relative overflow-hidden"
+            whileHover={{ y: -3 }}
+            transition={{ type: 'spring', damping: 22, stiffness: 300 }}
+            className="lg:col-span-2 midnight-card rounded-2xl p-7 sm:p-9 flex flex-col justify-between group relative overflow-hidden"
           >
             <div className="flex items-center justify-between mb-8">
               <div className="flex items-center gap-3">
-                <span className="font-mono text-xs font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                <span className="font-mono text-xs font-bold text-[#C0392B] bg-[#C0392B]/15 px-2.5 py-1 rounded border border-[#C0392B]/30">
                   METRIC_01
                 </span>
-                <span className="text-xs font-mono text-[#6B7280]">VELOCITY OPTIMIZATION</span>
+                <span className="text-xs font-mono text-[#A39D93]">VELOCITY OPTIMIZATION</span>
               </div>
-              <span className="text-xs font-mono px-2.5 py-1 rounded bg-[#141722] text-[#D1D5DB] border border-white/8 flex items-center gap-1.5">
-                SpecKit & AI <ArrowUpRight className="w-3 h-3 text-emerald-400" />
+              <span className="text-xs font-mono px-3 py-1 rounded-lg bg-black/40 text-[#F5F1EB] border border-[#2D3139] flex items-center gap-1.5">
+                SpecKit & AI <ArrowUpRight className="w-3.5 h-3.5 text-[#C0392B]" />
               </span>
             </div>
 
             <div>
-              <div className="flex flex-wrap items-baseline gap-2 sm:gap-3">
-                <span className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight font-mono">
+              <div className="flex flex-wrap items-baseline gap-3">
+                <span className="text-5xl sm:text-7xl font-bold text-[#F5F1EB] tracking-tight font-display">
                   30%
                 </span>
-                <span className="text-lg sm:text-2xl font-bold text-emerald-400 font-mono">
+                <span className="text-xl sm:text-2xl font-bold text-[#C0392B] font-display">
                   FASTER
                 </span>
               </div>
 
-              <h3 className="text-lg font-bold text-white mt-3 font-sans">
+              <h3 className="text-xl font-bold text-white mt-4 font-display">
                 Test Authoring & Delivery Velocity
               </h3>
-              <p className="text-sm text-[#9CA3AF] mt-1.5 leading-relaxed max-w-xl font-sans">
+              <p className="text-sm text-[#A39D93] mt-2 leading-relaxed max-w-2xl font-sans">
                 Pioneered autonomous testing blueprints and domain knowledge graphs with SpecKit and Agentic AI, reducing test creation cycles while maintaining strict defect-detection standards.
               </p>
             </div>
           </motion.div>
 
-          {/* Bento Item 2: API Coverage */}
+          {/* Bento Item 2: API Coverage (1 col) */}
           <motion.div
-            whileHover={{ y: -2 }}
-            transition={{ type: 'spring', damping: 20, stiffness: 300 }}
-            className="mono-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between group relative overflow-hidden"
+            whileHover={{ y: -3 }}
+            transition={{ type: 'spring', damping: 22, stiffness: 300 }}
+            className="midnight-card rounded-2xl p-7 sm:p-9 flex flex-col justify-between group relative overflow-hidden"
           >
             <div className="flex items-center justify-between mb-8">
               <div className="flex items-center gap-3">
-                <span className="font-mono text-xs font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                <span className="font-mono text-xs font-bold text-[#D4956A] bg-[#855C00]/20 px-2.5 py-1 rounded border border-[#855C00]/40">
                   METRIC_02
                 </span>
               </div>
-              <span className="text-xs font-mono px-2.5 py-1 rounded bg-[#141722] text-emerald-400 border border-emerald-500/20">
+              <span className="text-xs font-mono px-3 py-1 rounded-lg bg-black/40 text-[#D4956A] border border-[#855C00]/30">
                 100% Deterministic
               </span>
             </div>
 
             <div>
-              <div className="flex items-baseline gap-2">
-                <span className="text-5xl font-extrabold text-white tracking-tight font-mono">
+              <div className="flex items-baseline gap-2.5">
+                <span className="text-5xl sm:text-6xl font-bold text-[#F5F1EB] tracking-tight font-display">
                   99%
                 </span>
-                <span className="text-lg font-bold text-emerald-400 font-mono">
+                <span className="text-lg font-bold text-[#D4956A] font-display">
                   COVERAGE
                 </span>
               </div>
 
-              <h3 className="text-base font-bold text-white mt-3 font-sans">
+              <h3 className="text-lg font-bold text-white mt-4 font-display">
                 Automated API Suite
               </h3>
-              <p className="text-xs text-[#9CA3AF] mt-1.5 leading-relaxed font-sans">
+              <p className="text-xs sm:text-sm text-[#A39D93] mt-2 leading-relaxed font-sans">
                 Architected and maintaining 99% automated test coverage across critical backend endpoints and microservice APIs across all products.
               </p>
             </div>
           </motion.div>
 
-          {/* Bento Item 3: 20% CI Speedup & Cost Drop */}
+          {/* Bento Item 3: 20% CI Speedup & Cost Drop (2 cols) */}
           <motion.div
-            whileHover={{ y: -2 }}
-            transition={{ type: 'spring', damping: 20, stiffness: 300 }}
-            className="lg:col-span-2 mono-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between group relative overflow-hidden"
+            whileHover={{ y: -3 }}
+            transition={{ type: 'spring', damping: 22, stiffness: 300 }}
+            className="lg:col-span-2 midnight-card rounded-2xl p-7 sm:p-9 flex flex-col justify-between group relative overflow-hidden"
           >
             <div className="flex items-center justify-between mb-8">
               <div className="flex items-center gap-3">
-                <span className="font-mono text-xs font-bold text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20">
+                <span className="font-mono text-xs font-bold text-[#C0392B] bg-[#C0392B]/15 px-2.5 py-1 rounded border border-[#C0392B]/30">
                   METRIC_03
                 </span>
-                <span className="text-xs font-mono text-[#6B7280]">INFRASTRUCTURE SAVINGS</span>
+                <span className="text-xs font-mono text-[#A39D93]">INFRASTRUCTURE SAVINGS</span>
               </div>
-              <span className="text-xs font-mono px-2.5 py-1 rounded bg-[#141722] text-[#D1D5DB] border border-white/8 flex items-center gap-1.5">
-                Git Pre-Commit <GitBranch className="w-3 h-3 text-cyan-400" />
+              <span className="text-xs font-mono px-3 py-1 rounded-lg bg-black/40 text-[#F5F1EB] border border-[#2D3139] flex items-center gap-1.5">
+                Git Pre-Commit <GitBranch className="w-3.5 h-3.5 text-[#C0392B]" />
               </span>
             </div>
 
             <div>
-              <div className="flex flex-wrap items-baseline gap-2 sm:gap-3">
-                <span className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight font-mono">
+              <div className="flex flex-wrap items-baseline gap-3">
+                <span className="text-5xl sm:text-7xl font-bold text-[#F5F1EB] tracking-tight font-display">
                   20%
                 </span>
-                <span className="text-lg sm:text-2xl font-bold text-cyan-400 font-mono">
+                <span className="text-xl sm:text-2xl font-bold text-[#C0392B] font-display">
                   FASTER CI & MERGES
                 </span>
               </div>
 
-              <h3 className="text-lg font-bold text-white mt-3 font-sans">
+              <h3 className="text-xl font-bold text-white mt-4 font-display">
                 Pre-Commit Lint Architecture & Pipeline Cloud Cost Reduction
               </h3>
-              <p className="text-sm text-[#9CA3AF] mt-1.5 leading-relaxed max-w-xl font-sans">
+              <p className="text-sm text-[#A39D93] mt-2 leading-relaxed max-w-2xl font-sans">
                 Engineered automated Git pre-commit hooks that completely eliminated cloud linter pipelines. By shifting code quality checks locally to the developer machine, cloud pipeline costs dropped significantly and PR merge velocity accelerated by 20%.
               </p>
             </div>
           </motion.div>
 
-          {/* Bento Item 4: 3x ISTQB Certified */}
+          {/* Bento Item 4: 3x ISTQB Certified (1 col) */}
           <motion.div
-            whileHover={{ y: -2 }}
-            transition={{ type: 'spring', damping: 20, stiffness: 300 }}
-            className="mono-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between group relative overflow-hidden"
+            whileHover={{ y: -3 }}
+            transition={{ type: 'spring', damping: 22, stiffness: 300 }}
+            className="midnight-card rounded-2xl p-7 sm:p-9 flex flex-col justify-between group relative overflow-hidden"
           >
             <div className="flex items-center justify-between mb-8">
               <div className="flex items-center gap-3">
-                <span className="font-mono text-xs font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                <span className="font-mono text-xs font-bold text-[#D4956A] bg-[#855C00]/20 px-2.5 py-1 rounded border border-[#855C00]/40">
                   METRIC_04
                 </span>
               </div>
-              <span className="text-xs font-mono px-2.5 py-1 rounded bg-[#141722] text-white border border-white/10">
+              <span className="text-xs font-mono px-3 py-1 rounded-lg bg-black/40 text-[#F5F1EB] border border-[#2D3139]">
                 ESTB / ISTQB
               </span>
             </div>
 
             <div>
-              <div className="flex items-baseline gap-2">
-                <span className="text-5xl font-extrabold text-white tracking-tight font-mono">
+              <div className="flex items-baseline gap-2.5">
+                <span className="text-5xl sm:text-6xl font-bold text-[#F5F1EB] tracking-tight font-display">
                   3x
                 </span>
-                <span className="text-lg font-bold text-white font-mono">
+                <span className="text-lg font-bold text-[#D4956A] font-display">
                   CERTIFIED
                 </span>
               </div>
 
-              <h3 className="text-base font-bold text-white mt-3 font-sans">
+              <h3 className="text-lg font-bold text-white mt-4 font-display">
                 ISTQB Industry Credentials
               </h3>
-              <p className="text-xs text-[#9CA3AF] mt-1.5 leading-relaxed font-sans">
+              <p className="text-xs sm:text-sm text-[#A39D93] mt-2 leading-relaxed font-sans">
                 Certified in Foundation Level (CTFL), Mobile Application Testing (MAT), and Generative AI Testing standards.
               </p>
             </div>
